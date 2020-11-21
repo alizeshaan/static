@@ -1,11 +1,12 @@
 pipeline {
 	agent any
+	options{
+		withAWS(region:'us-east-1',credentials='aws-static')
+		}
 	stages {
 		stage('Upload to AWS') {
 			steps {
-			withAWS(credentials='aws-static') {
-				s3Upload(file:'index.html', bucket:'zjenkinsudacitybucket', path:'static/file.txt')
-				}	
+				s3Upload(file:'index.html', bucket:'zjenkinsudacitybucket', path:'**/*')
 			}
 		}
 	}
