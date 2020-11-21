@@ -6,9 +6,7 @@ pipeline {
 			steps {
 				sh 'echo "testing pipeline"'
 				sh 'ls'
-				withAWS(region:"us-east-1",credentials="aws-static"){
-				sh 'echo "hi there"'
-				}
+				sh 'withAWS(credentials="aws-static"){def identity = awsIdentity()}'
 			}
 			
 		}
