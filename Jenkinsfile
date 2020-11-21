@@ -6,7 +6,7 @@ pipeline {
 			steps {
 				sh 'echo "testing pipeline"'
 				sh 'ls'
-				withAWS(region:"us-east-1",credentials:"aws-static") {s3Upload(file:'index.html', bucket:'zjenkinsudacitybucket'}
+				withAWS(region:"us-east-1",credentials:"aws-static") {s3Upload(file:'index.html', bucket:'zjenkinsudacitybucket')}
 			}
 			
 		}
